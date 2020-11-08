@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public abstract class BasePage {
     protected WebDriver driver = Driver.getDriver();
 
     public BasePage() {
@@ -42,13 +42,13 @@ public class BasePage {
      *
      * @param element
      */
-    public static void waitAndClickWithJavaScript(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+    public  void waitAndClickWithJavaScript(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
     public void waitForElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
