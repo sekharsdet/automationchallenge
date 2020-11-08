@@ -53,7 +53,10 @@ public class DemoPage extends BasePage {
     @FindBy(css = "[value='WATCH VIDEOS']")
     private WebElement watchVideosButton;
 
-
+    /**
+     * fill One To One Demo Form at once
+     * @param userDetails
+     */
     public void fillOneToOneDemoForm(List<String> userDetails) {
         waitAndEnterValue(firstNameFiled, userDetails.get(0));
         waitAndEnterValue(lastNameFiled, userDetails.get(1));
@@ -69,7 +72,9 @@ public class DemoPage extends BasePage {
         waitAndClick(agreePrivacyPolicyCheckbox);
     }
 
-
+    /**
+     * open OneToOneDemo Form
+     */
     public void openOneToOneDemoForm() {
         waitAndClick(scheduleNowButton);
     }
@@ -101,7 +106,10 @@ public class DemoPage extends BasePage {
         return watchVideosButton.isDisplayed();
     }
 
-
+    /**
+     * fill watch video form at once
+     * @param userDetails
+     */
     public void fillWatchVideosForm(List<String> userDetails) {
         waitAndEnterValue(firstNameFiled, userDetails.get(0));
         waitAndEnterValue(lastNameFiled, userDetails.get(1));

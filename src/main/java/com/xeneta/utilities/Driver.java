@@ -57,6 +57,10 @@ public class Driver {
         return driverPool.get();
     }
 
+    /**
+     * close the browser
+     * closing the Resources
+     */
     public static void closeDriver() {
         if (driverPool != null) {
             driverPool.get().quit();
@@ -64,6 +68,12 @@ public class Driver {
         }
     }
 
+
+    /**
+     * will create driver
+     * cam run tests parallel if required
+     * @return WebDriver
+     */
     public synchronized static WebDriver getDriver() {
         if (driverPool.get() == null) {
             String browser = ReadDataFormProperties.getProperty("browser").toLowerCase();
