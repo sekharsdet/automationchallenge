@@ -11,7 +11,7 @@ Please run the tests from command line by using below template
 $ gradle clean build  cucumber -Dtags="@careers" 
 ```
 
-To run deffrent types of test , juts chnage the tags value
+To run different types of test , juts change the tags value
 To run regression tests
 ```
 $ gradle build  cucumber -Dtags="@regression" 
@@ -21,7 +21,7 @@ We can change url, browser values from config.properties
 
 ##### Cucumber Report 
 
-Once the execution is completed, from console you can find the cucumber report link like below
+Once the execution is completed, from the console you can find the cucumber report link like below
 
 https://reports.cucumber.io/reports/0792b1ab-b1f9-493c-8ba6-c7ca417857de
 
