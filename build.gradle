@@ -11,7 +11,7 @@ repositories {
 
 
 defaultTasks 'clean'
-task executeFeatures(type: JavaExec, dependsOn: testClasses) {
+task cucumber(type: JavaExec, dependsOn: testClasses) {
     main = "cucumber.api.cli.Main"
     classpath += files(sourceSets.test.runtimeClasspath)
     args+= ['-g', 'com.xeneta.step_definitions', 'src/test/resources/features','--tags', System.getProperty("tags")]
