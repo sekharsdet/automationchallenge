@@ -9,13 +9,22 @@ repositories {
     mavenCentral()
 }
 
+
+defaultTasks 'clean'
+task executeFeatures(type: JavaExec, dependsOn: testClasses) {
+    main = "cucumber.api.cli.Main"
+    classpath += files(sourceSets.test.runtimeClasspath)
+    args+= ['-g', 'com.xeneta.step_definitions', 'src/test/resources/features','--tags', System.getProperty("tags")]
+}
+
+
 dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java',version: '3.141.59'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'io.cucumber', name: 'cucumber-java', version: '6.8.2'
-    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '6.8.2'
+    compile group: 'io.cucumber', name: 'cucumber-junit', version: '6.8.2'
     compile group: 'io.cucumber', name: 'cucumber-core', version: '6.8.2'
-    testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.8.2'
+    compile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.8.2'
     compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.2.2'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'junit', name: 'junit', version: '4.12'
 }
